@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<monlist>
+
+	<mon>
+		<dexno>387</dexno>
+		<name>Turtwig</name>
+		<typing>
+			<type>Grass</type>
+		</typing>
+		<abilities>
+			<ability>Overgrow</ability>
+			<ability>Shell Armor</ability>
+		</abilities>
+		<weight>10.2</weight>
+		<stats>
+			<hp>55</hp>
+			<atk>68</atk>
+			<def>64</def>
+			<spatk>45</spatk>
+			<spdef>55</spdef>
+			<spd>31</spd>	
+		</stats>
+		<movepool>
+			<move>Tackle</move>
+			<move>Withdraw</move>
+			<move>Absorb</move>
+		</movepool>
+		<description></description>
+	</mon>
+	
+	<mon>
+		<dexno>390</dexno>
+		<name>Chimchar</name>
+		<typing>
+			<type>Fire</type>
+		</typing>
+		<abilities>
+			<ability>Blaze</ability>
+			<ability>Iron Fist</ability>
+		</abilities>
+		<weight>6.2</weight>
+		<stats>
+			<hp>44</hp>
+			<atk>58</atk>
+			<def>44</def>
+			<spatk>58</spatk>
+			<spdef>44</spdef>
+			<spd>61</spd>	
+		</stats>
+		<movepool>
+			<move>Scratch</move>
+			<move>Leer</move>
+			<move>Ember</move>
+		</movepool>
+		<description></description>
+	</mon>
+
+</monlist>
