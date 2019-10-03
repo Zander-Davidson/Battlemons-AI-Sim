@@ -1,6 +1,5 @@
 package battlesim;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import mons.Ability;
@@ -10,7 +9,7 @@ import mons.Move;
 import mons.Stat;
 import mons.Type;
 import tools.MondexXmlParser;
-import tools.MonsWebScraper;
+import tools.MonsXmlWriter;
 import tools.MovedexXmlParser;
 import tools.MovesXmlWriter;
 
@@ -22,17 +21,17 @@ public class Driver {
 
 		MovedexXmlParser moveParser = new MovedexXmlParser("src/main/resources/movedex.xml");
 
-		System.out.println("Moves:\n");
-		for (HashMap.Entry<String, Move> m : Dex.MOVES.entrySet()) {
-			System.out.println("Name: " + m.getValue().getName());
-			System.out.println("Type: " + m.getValue().getType().toString());
-			System.out.println("Category: " + m.getValue().getCategory().toString());
-			System.out.println("PP: " + m.getValue().getPp());
-			System.out.println("Max PP: " + m.getValue().getMaxpp());
-			System.out.println("Power: " + m.getValue().getPower());
-			System.out.println("Accuracy: " + m.getValue().getAccuracy());
-			System.out.println("Description: " + m.getValue().getDescription() + "\n");
-		}
+//		System.out.println("Moves:\n");
+//		for (HashMap.Entry<String, Move> m : Dex.MOVES.entrySet()) {
+//			System.out.println("Name: " + m.getValue().getName());
+//			System.out.println("Type: " + m.getValue().getType().toString());
+//			System.out.println("Category: " + m.getValue().getCategory().toString());
+//			System.out.println("PP: " + m.getValue().getPp());
+//			System.out.println("Max PP: " + m.getValue().getMaxpp());
+//			System.out.println("Power: " + m.getValue().getPower());
+//			System.out.println("Accuracy: " + m.getValue().getAccuracy());
+//			System.out.println("Description: " + m.getValue().getDescription() + "\n");
+//		}
 
 		MondexXmlParser monParser = new MondexXmlParser("src/main/resources/mondex.xml");
 
@@ -60,14 +59,17 @@ public class Driver {
 			System.out.println("");
 		}
 
-		testMovesWebScraper();
-		testMonsWebScraper();
+//		testMovesWebScraper();
+		// testMonsWebScraper();
+//		testType();
+
+		Battle b = new Battle();
 	}
 
 	public static void testMonsWebScraper() {
 		try {
-			MonsWebScraper mws = new MonsWebScraper();
-		} catch (IOException e) {
+			MonsXmlWriter monsWriter = new MonsXmlWriter();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
@@ -76,11 +78,16 @@ public class Driver {
 
 	public static void testMovesWebScraper() {
 		try {
-			MovesXmlWriter xmlWriter = new MovesXmlWriter();
+			MovesXmlWriter movesWriter = new MovesXmlWriter();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	public static void testType() {
+		for (Type t : Type.values()) {
+			System.out.println(t.Matchup.toString());
+		}
+	}
 }

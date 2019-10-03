@@ -1,19 +1,15 @@
-package battlesim;
+package mons;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import mons.Ability;
-import mons.Mon;
-import mons.Move;
-import mons.Nature;
-import mons.Stat;
-
 public class BattleMon extends Mon {
 
-	private ArrayList<Move> fMoveSet = new ArrayList<Move>();
-	private final Ability fAbility;
+	private final String fSpecies;
+	private final String fAbility;
 	private final Nature fNature;
+
+	private ArrayList<Move> fMoveSet = new ArrayList<Move>();
 
 	private HashMap<Stat, Integer> fStatusStatModifier = new HashMap<Stat, Integer>();
 	private HashMap<Stat, Integer> fItemStatModifier = new HashMap<Stat, Integer>();
@@ -24,7 +20,8 @@ public class BattleMon extends Mon {
 
 	private HashMap<Stat, Integer> fEffectiveStats = new HashMap<Stat, Integer>();
 
-	public BattleMon(Ability ability, Nature nature) {
+	public BattleMon(String species, String ability, Nature nature) {
+		fSpecies = species;
 		fAbility = ability;
 		fNature = nature;
 

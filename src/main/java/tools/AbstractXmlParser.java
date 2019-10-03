@@ -25,7 +25,7 @@ public abstract class AbstractXmlParser extends DefaultHandler {
 	 * defines action for processing element values. all children should override
 	 * this method. will be called by characters() during parse.
 	 * 
-	 * @param key   an element of a .xml file
+	 * @param key   an element of an .xml file
 	 * @param value value of said element
 	 */
 	protected void handleElement(String key, String value) {
@@ -33,10 +33,10 @@ public abstract class AbstractXmlParser extends DefaultHandler {
 
 	protected void parse() {
 		try {
-			File stocksXml = new File(fFilePath);
+			File file = new File(fFilePath);
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser parser = factory.newSAXParser();
-			parser.parse(stocksXml, this);
+			parser.parse(file, this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

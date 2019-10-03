@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<monlist>
+
+	<mon>
+		<dexno>001</dexno>
+		<name>Bulbasaur</name>
+		<typing>
+			<type>Grass</type>
+			<type>Poison</type>
+		</typing>
+		<abilities>
+			<ability>Overgrow</ability>
+			<ability>Chlorophyll</ability>
+		</abilities>
+		<weight>0</weight>
+		<stats>
+			<hp>45</hp>
+			<atk>49</atk>
+			<def>49</def>
+			<spatk>65</spatk>
+			<spdef>65</spdef>
+			<spd>45</spd>
+		</stats>
+		<movepool>
+			<move>Rock Smash</move>
+			<move>Poison Powder</move>
+			<move>Secret Power</move>
+			<move>Growl</move>
+			<move>Grass Whistle</move>
+			<move>Light Screen</move>
+			<move>Swords Dance</move>
+			<move>Leech Seed</move>
+			<move>Confide</move>
+			<move>Natural Gift</move>
+			<move>Magical Leaf</move>
+			<move>Seed Bomb</move>
+			<move>Synthesis</move>
+			<move>Curse</move>
+			<move>Work Up</move>
+			<move>Leaf Storm</move>
+			<move>Body Slam</move>
+			<move>Substitute</move>
+			<move>Attract</move>
+			<move>Double-Edge</move>
+			<move>Cut</move>
+			<move>Take Down</move>
+			<move>Hidden Power</move>
+			<move>Power Whip</move>
+			<move>Sunny Day</move>
+			<move>Petal Dance</move>
+			<move>Mega Drain</move>
+			<move>Tackle</move>
+			<move>Echoed Voice</move>
+			<move>Razor Leaf</move>
+			<move>Endure</move>
+			<move>Bide</move>
+			<move>Double Team</move>
+			<move>Giga Drain</move>
+			<move>Mud-Slap</move>
+			<move>Worry Seed</move>
+			<move>Bind</move>
+			<move>Snore</move>
+			<move>Facade</move>
+			<move>Toxic</move>
+			<move>Growth</move>
+			<move>Sludge Bomb</move>
+			<move>Grass Knot</move>
+			<move>Rage</move>
+			<move>Solar Beam</move>
+			<move>Headbutt</move>
+			<move>Sleep Powder</move>
+			<move>Razor Wind</move>
+			<move>Rest</move>
+			<move>Skull Bash</move>
+			<move>Charm</move>
+			<move>Swagger</move>
+			<move>Round</move>
+			<move>Bullet Seed</move>
+			<move>Amnesia</move>
+			<move>Defense Curl</move>
+			<move>Grassy Terrain</move>
+			<move>Flash</move>
+			<move>Energy Ball</move>
+			<move>Safeguard</move>
+			<move>Grass Pledge</move>
+			<move>Venoshock</move>
+			<move>Protect</move>
+			<move>Return</move>
+			<move>Nature Power</move>
+			<move>Vine Whip</move>
+			<move>Sweet Scent</move>
+			<move>Mimic</move>
+			<move>Captivate</move>
+			<move>Knock Off</move>
+			<move>Ingrain</move>
+			<move>Sludge</move>
+			<move>Fury Cutter</move>
+			<move>Reflect</move>
+			<move>String Shot</move>
+			<move>Sleep Talk</move>
+			<move>Frustration</move>
+			<move>Strength</move>
+		</movepool>
+		<description></description>
+</mon>
+
+</monlist>

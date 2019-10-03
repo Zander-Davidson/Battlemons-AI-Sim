@@ -3,6 +3,7 @@ package battlesim;
 import java.util.Date;
 import java.util.Random;
 
+import mons.BattleMon;
 import mons.Category;
 import mons.Move;
 import mons.Stat;
