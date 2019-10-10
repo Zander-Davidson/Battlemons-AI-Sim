@@ -50,11 +50,20 @@ public class Mon implements Cloneable {
 		this.fName = name;
 	}
 
-	public ArrayList<Type> getType() {
+	public ArrayList<Type> getTypeArray() {
 		return fType;
 	}
 
-	public void setType(ArrayList<Type> type) {
+	public Type getType(int i) {
+		try {
+			return fType.get(i);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Error occured while fetching " + fName + "type: index out of bounds.");
+			return null;
+		}
+	}
+
+	public void setTypeArray(ArrayList<Type> type) {
 		this.fType = type;
 	}
 

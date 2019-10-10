@@ -1,12 +1,6 @@
 package battlesim;
 
-import java.util.HashMap;
-
-import mons.Ability;
 import mons.Dex;
-import mons.Mon;
-import mons.Move;
-import mons.Stat;
 import mons.Type;
 import tools.MondexXmlParser;
 import tools.MonsXmlWriter;
@@ -35,35 +29,36 @@ public class Driver {
 
 		MondexXmlParser monParser = new MondexXmlParser("src/main/resources/mondex.xml");
 
-		System.out.println("Mons:\n");
-		for (HashMap.Entry<String, Mon> m : Dex.MONS.entrySet()) {
-			System.out.println("Dex Number: " + m.getValue().getDexNumber());
-			System.out.println("Name: " + m.getValue().getName());
-			for (Type t : m.getValue().getType()) {
-				System.out.println("Type: " + t.toString());
-			}
-			for (Ability a : m.getValue().getAbilities()) {
-				System.out.println("Ability: " + a.getName());
-			}
-			System.out.println("Weight: " + m.getValue().getWeight());
-			System.out.println("HP: " + m.getValue().getBaseStat(Stat.HP));
-			System.out.println("Attack: " + m.getValue().getBaseStat(Stat.ATK));
-			System.out.println("Defense: " + m.getValue().getBaseStat(Stat.DEF));
-			System.out.println("Sp. Attack: " + m.getValue().getBaseStat(Stat.SPATK));
-			System.out.println("Sp. Defense: " + m.getValue().getBaseStat(Stat.SPDEF));
-			System.out.println("Speed: " + m.getValue().getBaseStat(Stat.SPD));
-			for (Move mv : m.getValue().getMovePool()) {
-				System.out.println("Move: " + mv.getName());
-			}
-			System.out.println("Description: " + m.getValue().getDescription());
-			System.out.println("");
-		}
+//		System.out.println("Mons:\n");
+//		for (HashMap.Entry<String, Mon> m : Dex.MONS.entrySet()) {
+//			System.out.println("Dex Number: " + m.getValue().getDexNumber());
+//			System.out.println("Name: " + m.getValue().getName());
+//			for (Type t : m.getValue().getTypeArray()) {
+//				System.out.println("Type: " + t.toString());
+//			}
+//			for (Ability a : m.getValue().getAbilities()) {
+//				System.out.println("Ability: " + a.getName());
+//			}
+//			System.out.println("Weight: " + m.getValue().getWeight());
+//			System.out.println("HP: " + m.getValue().getBaseStat(Stat.HP));
+//			System.out.println("Attack: " + m.getValue().getBaseStat(Stat.ATK));
+//			System.out.println("Defense: " + m.getValue().getBaseStat(Stat.DEF));
+//			System.out.println("Sp. Attack: " + m.getValue().getBaseStat(Stat.SPATK));
+//			System.out.println("Sp. Defense: " + m.getValue().getBaseStat(Stat.SPDEF));
+//			System.out.println("Speed: " + m.getValue().getBaseStat(Stat.SPD));
+//			for (Move mv : m.getValue().getMovePool()) {
+//				System.out.println("Move: " + mv.getName());
+//			}
+//			System.out.println("Description: " + m.getValue().getDescription());
+//			System.out.println("");
+//		}
 
 //		testMovesWebScraper();
 		// testMonsWebScraper();
 //		testType();
 
 		Battle b = new Battle();
+
 	}
 
 	public static void testMonsWebScraper() {
