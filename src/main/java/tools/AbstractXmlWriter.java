@@ -8,7 +8,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-public class AbstractXmlWriter {
+public abstract class AbstractXmlWriter {
 
 	private final String fFileName;
 	private final String fFilePath;
@@ -40,7 +40,6 @@ public class AbstractXmlWriter {
 		xtw.writeStartElement(elemName);
 		xtw.writeCharacters(elemVal);
 		xtw.writeEndElement();
-		xtw.writeCharacters("\n");
 	}
 
 	private void initWriter() throws XMLStreamException, IOException {

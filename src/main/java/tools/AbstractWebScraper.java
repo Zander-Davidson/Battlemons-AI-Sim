@@ -20,6 +20,10 @@ public class AbstractWebScraper {
 		fDocument = Jsoup.connect(fUrl).userAgent(fBrowserVersion).get();
 	}
 
+	protected String getUrl() {
+		return fUrl;
+	}
+
 	protected Document getDocument() {
 		return fDocument;
 	}

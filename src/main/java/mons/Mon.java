@@ -3,7 +3,7 @@ package mons;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Mon {
+public class Mon implements Cloneable {
 
 	private int fDexNumber;
 	private String fName;
@@ -13,6 +13,10 @@ public class Mon {
 	private String fDescription;
 	private HashMap<Stat, Integer> fBaseStats = new HashMap<Stat, Integer>(); // stat name, int value
 	private ArrayList<Move> fMovePool = new ArrayList<Move>(); // move name, Move
+
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 
 	public void addType(Type type) {
 		fType.add(type);
@@ -46,11 +50,20 @@ public class Mon {
 		this.fName = name;
 	}
 
-	public ArrayList<Type> getType() {
+	public ArrayList<Type> getTypeArray() {
 		return fType;
 	}
 
-	public void setType(ArrayList<Type> type) {
+	public Type getType(int i) {
+		try {
+			return fType.get(i);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Error occured while fetching " + fName + "type: index out of bounds.");
+			return null;
+		}
+	}
+
+	public void setTypeArray(ArrayList<Type> type) {
 		this.fType = type;
 	}
 

@@ -23,10 +23,6 @@ public class MovesWebScraper extends AbstractWebScraper {
 		return fMoveElems;
 	}
 
-	interface PutMap {
-		void put(Element element, String key, String path);
-	}
-
 	private void putMap(String xmlId, Element root, String xPath) {
 		fMoveElems.put(xmlId, root.select(xPath).get(0).text());
 	}
@@ -45,10 +41,10 @@ public class MovesWebScraper extends AbstractWebScraper {
 	 * @return false if list is empty, else true
 	 */
 	public boolean parseMove() {
-		Element move = fMoves.first();
 		if (fMoves.isEmpty()) {
 			return false;
 		}
+		Element move = fMoves.remove(0);
 		fMoveElems.clear();
 
 		putMap("name", move, "td > a");
@@ -58,8 +54,6 @@ public class MovesWebScraper extends AbstractWebScraper {
 		putMap("accuracy", move, "td:eq(4)");
 		putMap("pp", move, "td:eq(5)");
 		putMap("description", move, "td:eq(7)");
-
-		fMoves.remove(0);
 		return true;
 	}
 }

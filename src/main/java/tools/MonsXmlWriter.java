@@ -9,7 +9,7 @@ import javax.xml.stream.XMLStreamException;
 public class MonsXmlWriter extends AbstractXmlWriter {
 
 	public MonsXmlWriter() throws XMLStreamException, IOException {
-		super("src/main/resources", "mondex1.xml");
+		super("src/main/resources", "mondex.xml");
 	}
 
 	@Override
@@ -33,10 +33,11 @@ public class MonsXmlWriter extends AbstractXmlWriter {
 
 			xtw.writeCharacters("\t");
 			xtw.writeStartElement("mon");
-			String[] elemOrder = { "dexno", "name", "typing", "type", "abilities", "ability", "weight", "stats", "hp",
-					"atk", "def", "spatk", "spdef", "spd", "movepool", "move", "description" };
+			xtw.writeCharacters("\n");
+			String[] elemOrder = { "dexno", "name", "typing", "type", "abilities", "ability", "height", "weight",
+					"stats", "hp", "atk", "def", "spatk", "spdef", "spd", "movepool", "move", "description" };
 			for (int i = 0; i < elemOrder.length; i++) {
-				xtw.writeCharacters("\t");
+				xtw.writeCharacters("\t\t");
 				String elemName = elemOrder[i];
 				xtw.writeStartElement(elemName);
 
@@ -51,14 +52,19 @@ public class MonsXmlWriter extends AbstractXmlWriter {
 							i++;
 							writeStandaloneElement(1, 3, elemOrder[i], elemVal);
 						}
+					} else if (elemName.equals("movepool")) {
+						for (String elemVal : ((ArrayList<String>) elems.get(elemName))) {
+							writeStandaloneElement(1, 3, elemOrder[i], elemVal);
+						}
 					}
+					xtw.writeCharacters("\n\t\t");
 				} else {
-					xtw.writeStartElement(elemName);
 					xtw.writeCharacters((String) elems.get(elemName));
-					xtw.writeEndElement();
-					xtw.writeCharacters("\n\t");
 				}
+				xtw.writeEndElement();
+				xtw.writeCharacters("\n");
 			}
+			xtw.writeCharacters("\t");
 			xtw.writeEndElement();
 			xtw.writeCharacters("\n\n");
 		}
