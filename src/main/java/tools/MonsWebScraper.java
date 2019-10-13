@@ -1,10 +1,14 @@
 package tools;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import org.jsoup.Connection.Response;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -13,7 +17,7 @@ public class MonsWebScraper extends AbstractWebScraper {
 
 	int counter = 1;
 
-	private ArrayList<String> fmonNames = new ArrayList<String>(); // an ArrayList of Elements of pokemon (will really
+	private ArrayList<String> fMonNames = new ArrayList<String>(); // an ArrayList of Elements of pokemon (will really
 																	// only
 																	// be used to get names of
 	// mons to generate new pages)
@@ -27,25 +31,23 @@ public class MonsWebScraper extends AbstractWebScraper {
 		Elements monNames = getDocument().getElementsByClass("cell-name");
 		while (!monNames.isEmpty()) {
 			Element name = monNames.remove(0);
-			if (!fmonNames.contains(name.select("td > a").attr("href"))) {
-				fmonNames.add(name.select("td > a").attr("href"));
+			if (!fMonNames.contains(name.select("td > a").attr("href"))) {
+				fMonNames.add(name.select("td > a").attr("href"));
 			}
 		}
 	}
 
 	public boolean parseMon() {
-		if (fmonNames.isEmpty()) {
+		if (fMonNames.isEmpty()) {
 			return false;
 		}
 		fMonElems.clear();
 
 		try {
-			fMonElems = new AbstractWebScraper("chrome/75.0.3770.142", "https://pokemondb.net" + fmonNames.remove(0)) {
+			fMonElems = new AbstractWebScraper("chrome/75.0.3770.142", "https://pokemondb.net" + fMonNames.remove(0)) {
 				private HashMap<String, Object> fMonElems = new HashMap<String, Object>();
 
 				public HashMap<String, Object> parseMon() {
-					System.out.println(getUrl());
-
 					fMonElems.clear();
 					Document document = getDocument();
 
@@ -106,6 +108,38 @@ public class MonsWebScraper extends AbstractWebScraper {
 					fMonElems.put("movepool", new ArrayList<String>(movepoolHash));
 
 					fMonElems.put("name", document.select("html > body > main > h1").get(0).text());
+
+					// *[@id="tab-basic-710"]/div[1]/div[1]/p[1]/img
+					// *[@id="tab-basic-487"]/div[1]/div[1]/p[1]/a/img
+					Response resultImageResponse = null;
+					// Open a URL Stream
+					try {
+						resultImageResponse = Jsoup
+								.connect(document.select("#tab-basic-" + counter).get(0).selectFirst("img").attr("src"))
+								.ignoreContentType(true).execute();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+					// output here
+					FileOutputStream out = null;
+					try {
+						out = (new FileOutputStream(
+								new java.io.File("src/main/resources/sprites/" + fMonElems.get("name") + ".jpg")));
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					System.out.println(fMonElems.get("name"));
+
+					try {
+						out.write(resultImageResponse.bodyAsBytes());
+						out.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} // resultImageResponse.body() is where the image's contents are.
 
 					// description
 
